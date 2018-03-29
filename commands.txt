@@ -1,0 +1,22 @@
+babel compile
+babel /Users/CDPC/Desktop/react-course-projects/indecision-app/src/app.js --out-file=/Users/CDPC/Desktop/react-course-projects/indecision-app/public/scripts/app.js --presets=/Users/CDPC/Desktop/react-course-projects/indecision-app/node_modules/babel-preset-env,/Users/CDPC/Desktop/react-course-projects/indecision-app/node_modules/babel-preset-react
+
+babel watch
+babel /Users/CDPC/Desktop/react-course-projects/indecision-app/src/app.js --out-file=/Users/CDPC/Desktop/react-course-projects/indecision-app/public/scripts/app.js --presets=/Users/CDPC/Desktop/react-course-projects/indecision-app/node_modules/babel-preset-env,/Users/CDPC/Desktop/react-course-projects/indecision-app/node_modules/babel-preset-react --watch
+babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
+babel /Users/CDPC/Desktop/react-course-projects/indecision-app/src/playground/counter-example.js --out-file=/Users/CDPC/Desktop/react-course-projects/indecision-app/public/scripts/app.js --presets=/Users/CDPC/Desktop/react-course-projects/indecision-app/node_modules/babel-preset-env,/Users/CDPC/Desktop/react-course-projects/indecision-app/node_modules/babel-preset-react --watch
+
+
+To install everything on package.json run "npm install"
+
+-Installing live-server (globally)
+    "npm install -g live-server"
+
+-Installing babel (globally)
+    "npm install -g babel-cli"
+
+Organize Code
+    On Mac Shift + Option + F
+    On Windows Shift + Alt + F
+
+check on mdn bind
