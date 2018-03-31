@@ -1,0 +1,44 @@
+
+body {
+    background-color: $mainColor;
+}
+
+.quote {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+    text-align: center;
+    width: auto;
+    padding: $m-size $m-size 0 $m-size;
+}
+
+.quote__text {
+    color: $mainColor;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0rem;
+    text-justify: auto;
+    //word-wrap: normal;
+}
+
+.quote__author {
+    color: $mainColor;
+    font-size: $sm-size;
+    text-align: right;
+}
+
+
+@media (min-width: $desktop-breakpoint) {
+    .quote {
+        padding: 6rem 6rem 0 6rem;
+    }
+
+    .quote__text {
+        font-size: $l-size;
+    }
+
+    .quote__author {
+        font-size: $m-size;
+    }
+}

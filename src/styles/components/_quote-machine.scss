@@ -1,0 +1,47 @@
+.quote-container {
+    background: white;
+    border: 1px solid;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 10rem;
+    max-width: 25rem;
+    min-width: 20rem;
+    //width: auto;
+    //padding-top: 40rem;
+
+}
+
+.quote-container__button {
+    //max-width: ;
+    background-color: lighten($mainColor,5%);
+    border: none;
+    border-radius: 5px;
+    color: white; //darken($mainColor, 10%);
+    font-size: $m-size;
+    margin: 0 auto 0 auto;
+    margin-bottom: 1rem;
+    width: 15rem;
+    padding: $s-size;
+}
+
+.quote-container__button:hover {
+    //max-width: ;
+    background-color: lighten($mainColor, 10%);
+}
+
+.signature {
+    color: black;
+    font-size: $s-size;
+    margin: 1rem auto auto auto;
+    text-align: center;
+}
+
+@media (min-width: $desktop-breakpoint) {
+    .quote-container {
+        margin-top: 15rem;
+        max-width: 80rem;
+    }
+}
+

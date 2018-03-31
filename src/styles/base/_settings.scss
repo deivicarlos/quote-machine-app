@@ -1,9 +1,22 @@
 // Colors
 
+$colors: #16a085, #27ae60, #2c3e50, 
+#f39c12, #e74c3c, #9b59b6, #FB6964, #342224, 
+#472E32, #BDBB99, #77B1A9, #73A857;
+
+$mainColor: #BDBB99;
 
 // Spacing
 $s-size: 1.2rem;
+$sm-size: 1.4rem;
 $m-size: 1.6rem;
+$ml-size: 2.4rem;
 $l-size: 3.2rem;
 $xl-size: 4.8rem;
 $desktop-breakpoint: 45rem;
+
+/*
+@function getRandomColor(){
+    $mainColor: nth($colors,random(length($colors)));
+}
+*/
