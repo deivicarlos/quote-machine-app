@@ -1,6 +1,12 @@
+
+body {
+    background-color: $mainColor;
+    transition: background-color 2s ease-in-out;
+}
+
 .quote-container {
     background: white;
-    border: 1px solid;
+    border: 0.1px solid;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -17,13 +23,14 @@
     //max-width: ;
     background-color: lighten($mainColor,5%);
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     color: white; //darken($mainColor, 10%);
     font-size: $m-size;
     margin: 0 auto 0 auto;
     margin-bottom: 1rem;
     width: 15rem;
     padding: $s-size;
+    transition: background-color 2s ease;
 }
 
 .quote-container__button:hover {
@@ -32,8 +39,9 @@
 }
 
 .signature {
-    color: black;
+    color: white;
     font-size: $s-size;
+    font-weight: 700;
     margin: 1rem auto auto auto;
     text-align: center;
 }

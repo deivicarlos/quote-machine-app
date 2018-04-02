@@ -2,43 +2,58 @@ import React from 'react';
 import Quote from './Quote';
 import axios from 'axios';
 import $ from 'jquery';
-import { fadeIn, fadeOut} from '../utils/utils'
+import { getRandomColor, cleanHtmlString } from '../utils/utils'
+
+const URL = "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1";
+/*const AXIOSconfig = {
+    headers: {
+        'Accept': 'HEAD, GET, POST',
+        'Access-Control-Allow-Credentials': 'true',
+        'Access-Control-Allow-Methods': 'POST, GET, OPTIONS, PUT, DELETE',
+        'Access-Control-Allow-Origin': 'http://localhost:8080',
+        'Cache-Control': 'no-cache',
+       // 'Connection': 'keep-alive',
+        //'Content-Length': '4',
+        'Content-Type': 'application/json; charset=UTF-8'
+    }
+};
+*/
 
 export default class QuoteMachine extends React.Component {
     state = {
         quote: "El sol sale para todos",
-        author: "Carlos Garcia"
+        author: "Carlos Garcia",
+        backgroundColor: undefined
     };
+
+
 
     componentDidMount() {
         $.ajaxSetup({ cache: false });
-        this.handleNewQuote();
+        //this.handleNewQuote();
+
     };
 
     handleNewQuote = () => {
 
-        //'/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1'
-        const url = "https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1";
+        /*axios.get(URL, AXIOSconfig).then((response) => {
+            this.setState(() => ({
+                quote: cleanHtmlString(response.data[0].content),
+                author: cleanHtmlString(response.data[0].title),
+                backgroundColor: getRandomColor
+            }))
 
-        $.getJSON(url, ((data) => {
-            //console.log(a[0].content + "<p>&mdash; " + a[0].title + "</p>");
-            const regExp = new RegExp(/&#[0-9]{2,15};/g);
-            let quote = data[0].content
-                .replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '')
-                .replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '')
-                .replace(/<\/?[^>]+(>|$)/g, "")
-                .replace(regExp, '')
-                .trim();
+        });*/
+        $.getJSON(URL, ((response) => {
+            this.setState(() => ({
+                quote: cleanHtmlString(response[0].content),
+                author: cleanHtmlString(response[0].title),
+                backgroundColor: getRandomColor()
+            }))
 
-            let author = data[0].title
-                .replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '')
-                .replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '')
-                .replace(/<\/?[^>]+(>|$)/g, "")
-                .replace(regExp, '')
-                .trim();
-
-            this.setState(() => ({ quote, author}))
+            document.body.style.backgroundColor = this.state.backgroundColor;
         }));
+        console.log(this.state.backgroundColor);
     };
 
     render() {
@@ -48,10 +63,13 @@ export default class QuoteMachine extends React.Component {
                     <Quote
                         quote={this.state.quote}
                         author={this.state.author}
+                        color={this.state.backgroundColor}
                     />
                     <button
+                        id="quote-container__button"
                         className="quote-container__button"
                         onClick={this.handleNewQuote}
+                        style={{ background: this.state.backgroundColor }}
                     >
                         New Quote
                 </button>

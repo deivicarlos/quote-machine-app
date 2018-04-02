@@ -1,8 +1,4 @@
 
-body {
-    background-color: $mainColor;
-}
-
 .quote {
     display: flex;
     flex-direction: column;
@@ -15,9 +11,12 @@ body {
 
 .quote__text {
     color: $mainColor;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 0rem;
+    //opacity: 0;
+    //transition: opacity 1s ease-in-out;
+    transition: color 1s ease;
     text-justify: auto;
     //word-wrap: normal;
 }
@@ -26,6 +25,7 @@ body {
     color: $mainColor;
     font-size: $sm-size;
     text-align: right;
+    transition: color 1s ease;
 }
 
 
